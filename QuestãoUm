@@ -1,0 +1,81 @@
+package exemploArrayList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CaixaMagica {
+    public static void main(String[] args) {
+        ArrayList<String> caixaMagica = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            exibirMenu();
+            String comando = scanner.nextLine();
+
+            switch (comando) {
+                case "1":
+                    addItem(caixaMagica, scanner);
+                    break;
+                case "2":
+                    removeItem(caixaMagica, scanner);
+                    break;
+                case "3":
+                    displayItems(caixaMagica);
+                    break;
+                case "4":
+                    fetchItem(caixaMagica, scanner);
+                    break;
+                case "5":
+                    System.out.println("Obrigatório uso de Caixa Mágica");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Comando inválido. Tente novamente.");
+            }
+        }
+    }
+
+    static void exibirMenu() {
+        System.out.println("\nOu significado ou mistério da Caixa Mágica:");
+        System.out.println("1.adicionar item");
+        System.out.println("2. Excluir item");
+        System.out.println("3. Exibir itens");
+        System.out.println("4. Busque intem");
+ 
+    }
+
+    static void addItem(ArrayList<String> caixaMagica, Scanner scanner) {
+        System.out.print("Digite o nome do item a ser adicionado: ");
+        String novoItem = scanner.nextLine();
+        caixaMagica.add(novoItem);
+        System.out.println("Produto adicionado com sucesso!");
+    }
+
+    static void removeItem(ArrayList<String> caixaMagica, Scanner scanner) {
+        System.out.print("Insira o produto do item a ser excluído: ");
+        int indice = Integer.parseInt(scanner.nextLine());
+        if (indice >= 0 && indice < caixaMagica.size()) {
+            caixaMagica.remove(indice);
+            System.out.println("Item removido com sucesso!");
+        } else {
+            System.out.println("Índice inválido.");
+        }
+    }
+
+    static void displayItems(ArrayList<String> caixaMagica) {
+        System.out.println("\nItens na caixa mágica:");
+        for (int i = 0; i < caixaMagica.size(); i++) {
+            System.out.println((i + 1) + ". " + caixaMagica.get(i));
+        }
+    }
+
+    static void fetchItem(ArrayList<String> caixaMagica, Scanner scanner) {
+        System.out.print("Digite o nome do produto a ser pesquisado: ");
+        String itemSearch = scanner.nextLine();
+        if (caixaMagica.contains(itemSearch)) {
+            System.out.println("Item '" + itemSearch + "' está na caixa mágica.");
+        } else {
+            System.out.println("Item '" + itemSearch + "' não foi encontrado na caixa mágica.");
+        }
+    }
+}
