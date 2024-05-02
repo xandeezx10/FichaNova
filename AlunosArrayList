@@ -1,0 +1,39 @@
+package exemploArrayList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AlunosArrayList {
+	public static void main (String[] args) {
+		ArrayList<String> nome = new ArrayList<String>();
+		ArrayList<Integer> idade = new ArrayList<Integer>();
+		ArrayList<String> curso = new ArrayList<String>();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		
+		Scanner ler = new Scanner(System.in);
+		System.out.println("Digite um nome");
+		
+		String nomeS = ler.nextLine();
+		nome.add(nomeS);
+		
+		System.out.println("Digite uma idade");
+		int x = ler.nextInt();
+		idade.add(x);
+		
+		System.out.println("Digite um curso");
+		String cursosS = ler.nextLine();
+		curso.add(cursosS);
+		
+		System.out.println("Digite a média");
+		double y = ler.nextInt();		
+		notas.add(y);
+		
+		
+		
+		System.out.println(nome);
+		System.out.println(idade);
+		System.out.println(curso);
+		System.out.println(notas);
+	    
+	}
+}
